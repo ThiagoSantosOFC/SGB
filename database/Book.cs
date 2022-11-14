@@ -66,7 +66,41 @@ namespace biblioteca.database
 
         public bool Insert(dynamic imput)
         {
-            throw new NotImplementedException();
+            /*
+            	in bookTitle varchar(255),
+                in bookAuthor varchar(255),
+                in bookIsbn varchar(255), 
+                in bookPublisher varchar(255),
+                in bookYear varchar(45),
+                in bookCategory varchar(45)
+            */
+            string procedure = "insertbook";
+            
+            try
+            {
+                using (Connection)
+                {
+                    Connection.Execute(
+                        procedure,
+                        new
+                        {
+                            bookTitle = imput.Title,
+                            bookAuthor = imput.Author,
+                            bookIsbn = imput.ISBN,
+                            bookPublisher = imput.Publisher,
+                            bookYear = imput.Year,
+                            bookCategory = imput.Category
+                        },
+                        commandType: CommandType.StoredProcedure
+                    );
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return false;
+            }
         }
 
 
