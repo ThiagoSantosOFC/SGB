@@ -1,2 +1,9 @@
 
-obj/Debug/net6.0-windows/SGB.csproj.CopyComplete
+*.editorconfig
+obj/Debug/net6.0-windows/SGB.assets.cache
+obj/Debug/net6.0-windows/SGB.assets.cache
+*.cache
+*.cache
+*.cache
+*.cache
+*.json
