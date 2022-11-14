@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace SGB
 {
-    public partial class login : Form
+    public partial class registro : Form
     {
-        public login()
+        public registro()
         {
             InitializeComponent();
-        }
-
-        private void login_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void criarcontaLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            //
         }
     }
 }

@@ -24,3 +24,4 @@ C:\Users\52315\Documents\GitHub\SGB\bin\Debug\net6.0-windows\MySql.Data.dll
 C:\Users\52315\Documents\GitHub\SGB\bin\Debug\net6.0-windows\ZstdNet.dll
 C:\Users\52315\Documents\GitHub\SGB\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
 C:\Users\52315\Documents\GitHub\SGB\obj\Debug\net6.0-windows\SGB.csproj.CopyComplete
+C:\Users\52315\Documents\GitHub\SGB\obj\Debug\net6.0-windows\SGB.registro.resources
