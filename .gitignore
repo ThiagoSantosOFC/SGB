@@ -7,6 +7,3 @@ obj/Debug/net6.0-windows/SGB.assets.cache
 *.cache
 *.cache
 *.json
-*.vsidx
-*.CopyComplete
-*.editorconfig
