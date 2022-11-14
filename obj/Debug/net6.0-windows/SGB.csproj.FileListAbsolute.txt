@@ -5,3 +5,13 @@ C:\Users\52315\Documents\GitHub\SGB\obj\Debug\net6.0-windows\SGB.GeneratedMSBuil
 C:\Users\52315\Documents\GitHub\SGB\obj\Debug\net6.0-windows\SGB.AssemblyInfoInputs.cache
 C:\Users\52315\Documents\GitHub\SGB\obj\Debug\net6.0-windows\SGB.AssemblyInfo.cs
 C:\Users\52315\Documents\GitHub\SGB\obj\Debug\net6.0-windows\SGB.csproj.CoreCompileInputs.cache
+C:\Users\52315\Documents\GitHub\SGB\bin\Debug\net6.0-windows\SGB.exe
+C:\Users\52315\Documents\GitHub\SGB\bin\Debug\net6.0-windows\SGB.deps.json
+C:\Users\52315\Documents\GitHub\SGB\bin\Debug\net6.0-windows\SGB.runtimeconfig.json
+C:\Users\52315\Documents\GitHub\SGB\bin\Debug\net6.0-windows\SGB.dll
+C:\Users\52315\Documents\GitHub\SGB\bin\Debug\net6.0-windows\SGB.pdb
+C:\Users\52315\Documents\GitHub\SGB\obj\Debug\net6.0-windows\SGB.dll
+C:\Users\52315\Documents\GitHub\SGB\obj\Debug\net6.0-windows\refint\SGB.dll
+C:\Users\52315\Documents\GitHub\SGB\obj\Debug\net6.0-windows\SGB.pdb
+C:\Users\52315\Documents\GitHub\SGB\obj\Debug\net6.0-windows\SGB.genruntimeconfig.cache
+C:\Users\52315\Documents\GitHub\SGB\obj\Debug\net6.0-windows\ref\SGB.dll
