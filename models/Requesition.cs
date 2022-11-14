@@ -11,7 +11,7 @@ namespace biblioteca.models
         public int Id { get; set; }
         public int UserId { get; set; }
         public int BookId { get; set; }
-        public string? Created { get; set; }
+        public readonly string? Created = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"); 
         public string? End { get; set; }
     }
 }

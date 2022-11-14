@@ -27,7 +27,7 @@ namespace biblioteca.database
                         procedure,
                         new
                         {
-                            bookId = imput.Title
+                            bookTitle = imput.Title
                         },
                         commandType: CommandType.StoredProcedure
                     );
@@ -51,7 +51,7 @@ namespace biblioteca.database
                 {
                     dynamic result = Connection.QueryFirst<Book>(
                         procedure,
-                        new { bookId = imput.Title },
+                        new { bookTitle = imput.Title },
                         commandType: CommandType.StoredProcedure
                     );
                     return result;
@@ -103,10 +103,35 @@ namespace biblioteca.database
             }
         }
 
-
         public bool Update(dynamic imput)
         {
-            throw new NotImplementedException();
+            string procedure = "updatebook";
+
+            try
+            {
+                using (Connection)
+                {
+                    Connection.Execute(
+                        procedure,
+                        new
+                        {
+                            bookTitle = imput.Title,
+                            bookAuthor = imput.Author,
+                            bookIsbn = imput.ISBN,
+                            bookPublisher = imput.Publisher,
+                            bookYear = imput.Year,
+                            bookCategory = imput.Category
+                        },
+                        commandType: CommandType.StoredProcedure
+                    );
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return false;
+            }
         }
     }
 }
