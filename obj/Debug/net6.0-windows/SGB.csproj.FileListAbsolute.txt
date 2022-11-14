@@ -1,0 +1,7 @@
+C:\Users\52315\Documents\GitHub\SGB\obj\Debug\net6.0-windows\SGB.csproj.AssemblyReference.cache
+C:\Users\52315\Documents\GitHub\SGB\obj\Debug\net6.0-windows\SGB.Login.resources
+C:\Users\52315\Documents\GitHub\SGB\obj\Debug\net6.0-windows\SGB.csproj.GenerateResource.cache
+C:\Users\52315\Documents\GitHub\SGB\obj\Debug\net6.0-windows\SGB.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\52315\Documents\GitHub\SGB\obj\Debug\net6.0-windows\SGB.AssemblyInfoInputs.cache
+C:\Users\52315\Documents\GitHub\SGB\obj\Debug\net6.0-windows\SGB.AssemblyInfo.cs
+C:\Users\52315\Documents\GitHub\SGB\obj\Debug\net6.0-windows\SGB.csproj.CoreCompileInputs.cache
