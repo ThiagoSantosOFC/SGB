@@ -147,5 +147,32 @@ namespace Testing
             }
         }
 
+        public void TestGetBook()
+        {
+            try
+            {
+                Book book = new Book();
+                book.Id = 1;
+                IData data = new BookDB();
+
+                Connection connection = new Connection();
+
+                connection.setDatabase("biblioteca");
+                connection.setServer("localhost");
+                connection.setUser("root");
+                connection.setPassword("123456789");
+                connection.setPort("3306");
+
+                data.SetConnection(connection.getConnection());
+
+                Book result = data.Get(book);
+
+                throw new Exception($"Book: {result.Id} {result.Title} {result.Author} {result.Publisher} {result.Year} {result.ISBN} {result.Category}");
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
     }
 }
