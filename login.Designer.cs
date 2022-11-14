@@ -119,6 +119,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bem-vindo ao SGB";
             this.Load += new System.EventHandler(this.login_Load);
             this.ResumeLayout(false);
