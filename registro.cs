@@ -27,13 +27,24 @@ namespace SGB
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (password_txb.Text == confirmarPassword_txb.Text)
+            //verifica se as password são iguais, verifica se o email é válido
+            if (password_txb.Text == confirmarPassword_txb.Text || password_txb == "")
             {
-                MessageBox.Show("Conta criada com sucesso");
-            }
-            else
+                if (email_txb.Text.Contains("@") && email_txb.Text.Contains("."))
+                {
+                  if(username_txb.Text == "")
+                    {
+                        MessageBox.Show("O nome de utilizador não pode estar vazio!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Email inválido");  
+                }
+
+            } else 
             {
-                MessageBox.Show("As senhas não coincidem");
+                MessageBox.Show("As passwords não são iguais!");
             }
         }
     }
