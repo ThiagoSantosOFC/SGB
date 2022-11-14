@@ -24,7 +24,16 @@ namespace SGB
 
         private void criarcontaLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //
+            //open form resgitro
+            this.Hide();
+            registro reg = new registro();
+            reg.Show();
+
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

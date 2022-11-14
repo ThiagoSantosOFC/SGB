@@ -40,18 +40,20 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(251, 357);
+            this.btnLogin.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnLogin.Location = new System.Drawing.Point(254, 353);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(364, 106);
+            this.btnLogin.Size = new System.Drawing.Size(379, 106);
             this.btnLogin.TabIndex = 0;
             this.btnLogin.Text = "Entrar na conta";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(47, 38);
+            this.label1.Location = new System.Drawing.Point(63, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(786, 117);
             this.label1.TabIndex = 1;
@@ -91,14 +93,14 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(320, 248);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(182, 26);
+            this.textBox1.Size = new System.Drawing.Size(242, 26);
             this.textBox1.TabIndex = 5;
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(320, 308);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(180, 26);
+            this.textBox2.Size = new System.Drawing.Size(242, 26);
             this.textBox2.TabIndex = 6;
             // 
             // login
