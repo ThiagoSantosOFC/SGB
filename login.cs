@@ -12,14 +12,32 @@ namespace SGB
 {
     public partial class login : Form
     {
+ 
+
         public login()
         {
             InitializeComponent();
+         
+            
         }
 
         private void login_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void criarcontaLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            //open form resgitro
+            this.Hide();
+            registro reg = new registro();
+            reg.Show();
+
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
