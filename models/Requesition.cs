@@ -8,10 +8,10 @@ namespace biblioteca.models
 {
     public class Requesition
     {
-        public int Id { get; set; }
         public int UserId { get; set; }
         public int BookId { get; set; }
-        public readonly string? Created = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"); 
-        public string? End { get; set; }
+        public string? levantamento { get; set; }
+        public string? entrega { get; set; }
+        public int Id { get; set; }
     }
 }

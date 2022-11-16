@@ -295,12 +295,11 @@ namespace Testing
             try
             {
                 Requesition requesition = new Requesition();
-                requesition.Book = "A arte da guerra";
-                requesition.User = "test2";
-                requesition.Date = "2020-12-12";
-                requesition.Status = "Pendente";
+                requesition.BookId = 1;
+                requesition.UserId = 1;
+                requesition.levantamento = "2019-12-12";
 
-                IData data = new RequesitionDB();
+                IData data = new RequisitionDB();
 
                 Connection connection = new Connection();
 
@@ -322,6 +321,35 @@ namespace Testing
                 {
                     throw new Exception("Requesition not inserted");
                 }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public void TestGetRequisition()
+        {
+            try
+            {
+                Requesition requesition = new Requesition();
+                requesition.Id = 4;
+
+                IData data = new RequisitionDB();
+
+                Connection connection = new Connection();
+
+                connection.setDatabase("biblioteca");
+                connection.setServer("localhost");
+                connection.setUser("root");
+                connection.setPassword("123456789");
+                connection.setPort("3306");
+
+                data.SetConnection(connection.getConnection());
+
+                Requesition result = data.Get(requesition);
+
+                throw new Exception($"Requesition: {result.Id}-{result.BookId}-{result.UserId}-{result.levantamento}");
             }
             catch (Exception e)
             {

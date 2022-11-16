@@ -32,6 +32,26 @@ namespace biblioteca.database
 
         public dynamic Get(dynamic imput)
         {
+            string procedure = "getrequisicao";
+
+            try
+            {
+                using (Connection)
+                {
+                    dynamic result = Connection.QueryFirst<Requesition>(
+                        procedure,
+                        new { requisicaoId = imput.Id },
+                        commandType: CommandType.StoredProcedure
+                        );
+                    return result;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return new Requesition();
+            }
+
             throw new NotImplementedException();
         }
 
@@ -55,7 +75,7 @@ namespace biblioteca.database
                         {
                             userid = imput.UserId,
                             bookid = imput.BookId,
-                            levantamento = imput.Created 
+                            levantamento = imput.levantamento 
                         },
                         commandType: CommandType.StoredProcedure
                     );
@@ -71,7 +91,36 @@ namespace biblioteca.database
 
         public bool Update(dynamic imput)
         {
-            throw new NotImplementedException();
+            /*
+            in entrega varchar(45),
+            in userid INT,
+            in bookid INT
+            */
+
+            string procedure = "updaterequisicao";
+
+            try
+            {
+                using (Connection)
+                {
+                    Connection.Execute(
+                        procedure,
+                        new
+                        {
+                            entrega = imput.Delivered,
+                            userid = imput.UserId,
+                            bookid = imput.BookId
+                        },
+                        commandType: CommandType.StoredProcedure
+                    );
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return false;
+            }
         }
     }
 }
