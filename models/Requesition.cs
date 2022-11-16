@@ -8,10 +8,10 @@ namespace biblioteca.models
 {
     public class Requesition
     {
-        public int Id { get; set; }
         public int UserId { get; set; }
         public int BookId { get; set; }
-        public string? Created { get; set; }
-        public string? End { get; set; }
+        public string? levantamento { get; set; }
+        public string? entrega { get; set; }
+        public int Id { get; set; }
     }
 }

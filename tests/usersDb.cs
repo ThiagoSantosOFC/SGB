@@ -7,6 +7,7 @@ namespace Testing
 {
     class DbTests
     {
+        // User tests
         public void TestGetUser()
         {
             try
@@ -35,7 +36,6 @@ namespace Testing
                 throw new Exception(e.Message);
             }
         }
-
         public void TestInsertUser()
         {
             try
@@ -73,7 +73,6 @@ namespace Testing
                 throw new Exception(e.Message);
             }
         }
-        
         public void TestDeleteUser()
         {
             try
@@ -108,7 +107,6 @@ namespace Testing
                 throw new Exception(e.Message);
             }
         }
-
         public void TestUpdateUser()
         {
             try
@@ -146,13 +144,15 @@ namespace Testing
                 throw new Exception(e.Message);
             }
         }
-
+        
+        //Book tests
         public void TestGetBook()
         {
             try
             {
                 Book book = new Book();
-                book.Id = 1;
+                book.Title = "The Hobbit";
+
                 IData data = new BookDB();
 
                 Connection connection = new Connection();
@@ -167,7 +167,189 @@ namespace Testing
 
                 Book result = data.Get(book);
 
-                throw new Exception($"Book: {result.Id} {result.Title} {result.Author} {result.Publisher} {result.Year} {result.ISBN} {result.Category}");
+                throw new Exception($"Book: {result.Title} {result.Author} {result.Year}");
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+        public void TestInsertBook()
+        {
+            try
+            {
+                Book book = new Book();
+                book.Title = "A arte da guerra";
+                book.Author = "Sun Tzu";
+                book.Year = "500 a.C";
+                book.Publisher = "Editora";
+                book.ISBN = "123456789";
+                book.Category = "Guerra";
+
+                IData data = new BookDB();
+
+                Connection connection = new Connection();
+
+                connection.setDatabase("biblioteca");
+                connection.setServer("localhost");
+                connection.setUser("root");
+                connection.setPassword("123456789");
+                connection.setPort("3306");
+
+                data.SetConnection(connection.getConnection());
+
+                bool result = data.Insert(book);
+
+                if (result == true)
+                {
+                    throw new Exception("Book inserted");
+                }
+                else
+                {
+                    throw new Exception("Book not inserted");
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+        public void TestDeleteBook()
+        {
+            try
+            {
+                Book book = new Book();
+                book.Title = "teste";
+                IData data = new BookDB();
+
+                Connection connection = new Connection();
+
+                connection.setDatabase("biblioteca");
+                connection.setServer("localhost");
+                connection.setUser("root");
+                connection.setPassword("123456789");
+                connection.setPort("3306");
+
+                data.SetConnection(connection.getConnection());
+
+                bool result = data.Delete(book);
+
+                if (result == true)
+                {
+                    throw new Exception("Book deleted");
+                }
+                else
+                {
+                    throw new Exception("Book not deleted");
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+        public void TestUpdateBook()
+        {
+            try
+            {
+                Book book = new Book();
+                book.Title = "test";
+                book.Author = "Sun Tzu";
+                book.Year = "500 a.C";
+                book.Publisher = "Editora";
+                book.ISBN = "123";
+                book.Category = "Guerra";
+
+                IData data = new BookDB();
+
+                Connection connection = new Connection();
+
+                connection.setDatabase("biblioteca");
+                connection.setServer("localhost");
+                connection.setUser("root");
+                connection.setPassword("123456789");
+                connection.setPort("3306");
+
+                data.SetConnection(connection.getConnection());
+
+                bool result = data.Update(book);
+
+                if (result == true)
+                {
+                    throw new Exception("Book updated");
+                }
+                else
+                {
+                    throw new Exception("Book not updated");
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+    
+        // Requesition tests
+        public void TestInsertRequesition()
+        {
+            try
+            {
+                Requesition requesition = new Requesition();
+                requesition.BookId = 1;
+                requesition.UserId = 1;
+                requesition.levantamento = "2019-12-12";
+
+                IData data = new RequisitionDB();
+
+                Connection connection = new Connection();
+
+                connection.setDatabase("biblioteca");
+                connection.setServer("localhost");
+                connection.setUser("root");
+                connection.setPassword("123456789");
+                connection.setPort("3306");
+
+                data.SetConnection(connection.getConnection());
+
+                bool result = data.Insert(requesition);
+
+                if (result == true)
+                {
+                    throw new Exception("Requesition inserted");
+                }
+                else
+                {
+                    throw new Exception("Requesition not inserted");
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public void TestGetRequisition()
+        {
+            try
+            {
+                Requesition requesition = new Requesition();
+                requesition.Id = 4;
+
+                IData data = new RequisitionDB();
+
+                Connection connection = new Connection();
+
+                connection.setDatabase("biblioteca");
+                connection.setServer("localhost");
+                connection.setUser("root");
+                connection.setPassword("123456789");
+                connection.setPort("3306");
+
+                data.SetConnection(connection.getConnection());
+
+                Requesition result = data.Get(requesition);
+
+                throw new Exception($"Requesition: {result.Id}-{result.BookId}-{result.UserId}-{result.levantamento}");
             }
             catch (Exception e)
             {

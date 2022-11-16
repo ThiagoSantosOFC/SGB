@@ -1,15 +1,25 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data;
+using System.Windows.Forms;
 using Dapper;
 using MySql.Data.MySqlClient;
 using biblioteca.interfaces;
 using biblioteca.models;
-using System.Data;
 
 namespace biblioteca.database
 {
-    class BookDB : IData
+    class RequisitionDB : IData
     {
         private IDbConnection? Connection;
 
+        /*
+        Requisições tem apenas os metodos de inserção e deleção visto que são registros de empréstimos e pressisam estar gravados 
+        e não podem ser apagados apenas inseridos e alterados.
+        */
         public void SetConnection(IDbConnection connection)
         {
             Connection = connection;
@@ -17,65 +27,44 @@ namespace biblioteca.database
 
         public bool Delete(dynamic imput)
         {
-            string procedure = "deletebook";
-
-            try
-            {
-                using (Connection)
-                {
-                    Connection.Execute(
-                        procedure,
-                        new
-                        {
-                            bookTitle = imput.Title
-                        },
-                        commandType: CommandType.StoredProcedure
-                    );
-                    return true;
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-                return false;
-            }
+            throw new NotImplementedException();
         }
 
         public dynamic Get(dynamic imput)
         {
-            string procedure = "getbook";
+            string procedure = "getrequisicao";
 
             try
             {
                 using (Connection)
                 {
-                    dynamic result = Connection.QueryFirst<Book>(
+                    dynamic result = Connection.QueryFirst<Requesition>(
                         procedure,
-                        new { bookTitle = imput.Title },
+                        new { requisicaoId = imput.Id },
                         commandType: CommandType.StoredProcedure
-                    );
+                        );
                     return result;
                 }
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
-                return new Book();
+                return new Requesition();
             }
+
+            throw new NotImplementedException();
         }
 
         public bool Insert(dynamic imput)
         {
             /*
-            	in bookTitle varchar(255),
-                in bookAuthor varchar(255),
-                in bookIsbn varchar(255), 
-                in bookPublisher varchar(255),
-                in bookYear varchar(45),
-                in bookCategory varchar(45)
+            in userid INT,
+            in bookid INT,
+            in levantamento varchar(255) <- Time now in string format (yyyy-MM-dd HH:mm:ss)
             */
-            string procedure = "insertbook";
-            
+
+            string procedure = "insertrequisicao";
+
             try
             {
                 using (Connection)
@@ -84,12 +73,9 @@ namespace biblioteca.database
                         procedure,
                         new
                         {
-                            bookTitle = imput.Title,
-                            bookAuthor = imput.Author,
-                            bookIsbn = imput.ISBN,
-                            bookPublisher = imput.Publisher,
-                            bookYear = imput.Year,
-                            bookCategory = imput.Category
+                            userid = imput.UserId,
+                            bookid = imput.BookId,
+                            levantamento = imput.levantamento 
                         },
                         commandType: CommandType.StoredProcedure
                     );
@@ -105,7 +91,13 @@ namespace biblioteca.database
 
         public bool Update(dynamic imput)
         {
-            string procedure = "updatebook";
+            /*
+            in entrega varchar(45),
+            in userid INT,
+            in bookid INT
+            */
+
+            string procedure = "updaterequisicao";
 
             try
             {
@@ -115,12 +107,9 @@ namespace biblioteca.database
                         procedure,
                         new
                         {
-                            bookTitle = imput.Title,
-                            bookAuthor = imput.Author,
-                            bookIsbn = imput.ISBN,
-                            bookPublisher = imput.Publisher,
-                            bookYear = imput.Year,
-                            bookCategory = imput.Category
+                            entrega = imput.Delivered,
+                            userid = imput.UserId,
+                            bookid = imput.BookId
                         },
                         commandType: CommandType.StoredProcedure
                     );
