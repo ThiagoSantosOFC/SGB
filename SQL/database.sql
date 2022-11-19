@@ -39,14 +39,14 @@ DEFAULT CHARACTER SET = utf8mb3;
 CREATE TABLE IF NOT EXISTS `biblioteca`.`user` (
   `username` VARCHAR(16) NOT NULL,
   `email` VARCHAR(255) NULL DEFAULT NULL,
-  `password` VARCHAR(32) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
   `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   `id` INT NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC) VISIBLE,
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 8
+AUTO_INCREMENT = 10
 DEFAULT CHARACTER SET = utf8mb3;
 
 
@@ -141,10 +141,10 @@ DELIMITER ;
 DELIMITER $$
 USE `biblioteca`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `getuser`(
-    in userId INT
+    in userName varchar(255)
 )
 BEGIN
-	select * from user where id = userId;
+	select * from user where username = userName;
 END$$
 
 DELIMITER ;
@@ -165,7 +165,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `insertbook`(
 )
 BEGIN
 	DECLARE bookid INT DEFAULT 0;
-	SET bookid = (SELECT max(`book`.`book_id`) FROM book) + 1;
+	SET bookid = ((SELECT max(`book`.`book_id`) FROM book ) + 1) OR 1;
 	INSERT INTO book (
     book_id,
     title,
@@ -201,7 +201,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `insertrequisicao`(
 )
 BEGIN
 	DECLARE reqid INT DEFAULT 0;
-	SET reqid = (SELECT max(`requisicoes`.`id`) FROM requisicoes) + 1;
+	SET reqid = ((SELECT max(`requisicoes`.`id`) FROM requisicoes) + 1) or 1;
     INSERT INTO `biblioteca`.`requisicoes`
 	(
     `user_id`,
@@ -228,7 +228,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `insertuser`(
 )
 BEGIN
 	DECLARE userid INT DEFAULT 0;
-	SET userid = (SELECT max(`user`.`id`) FROM user) + 1;
+	SET userid = ((SELECT max(`user`.`id`) FROM user) + 1);
 	INSERT INTO user (
 		username,
         email,

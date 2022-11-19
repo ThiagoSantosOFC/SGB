@@ -1,4 +1,8 @@
-﻿using System;
+﻿using biblioteca.models;
+using biblioteca.tools;
+using biblioteca.database;
+using biblioteca.interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -37,6 +41,12 @@ namespace SGB
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            User user = new();
+            Criptography cripto = new();
+
+            user.Name = username_txb.Text;
+            user.Password = 
+
             
         }
     }

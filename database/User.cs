@@ -26,17 +26,13 @@ namespace biblioteca.database
             {
                 using (Connection)
                 {
-                    dynamic result = Connection.QueryFirst<User>(
-                        procedure,
-                        new { userId = imput.Id },
-                        commandType: CommandType.StoredProcedure
-                        );
+                    dynamic result = Connection.QueryFirst<User>(procedure, new { userName = imput.Name }, commandType: CommandType.StoredProcedure);
                     return result;
                 }
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show(e.Message + " Erro na função Get");
                 return new User();
             }
         }

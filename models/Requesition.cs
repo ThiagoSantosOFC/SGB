@@ -13,5 +13,17 @@ namespace biblioteca.models
         public string? levantamento { get; set; }
         public string? entrega { get; set; }
         public int Id { get; set; }
+
+        public string RequesitionIsValid()
+        {
+            if (UserId == 0)
+                return "O utilizador não pode estar vazio";
+            if (BookId == 0)
+                return "O livro não pode estar vazio";
+            if (levantamento == null || levantamento == "")
+                return "A data de levantamento não pode estar vazia";
+
+            return "";
+        }
     }
 }

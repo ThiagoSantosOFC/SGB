@@ -34,18 +34,18 @@
             this.criarcontaLink = new System.Windows.Forms.LinkLabel();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.username_txb = new System.Windows.Forms.TextBox();
+            this.password_txb = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnLogin
             // 
             this.btnLogin.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnLogin.Location = new System.Drawing.Point(254, 353);
+            this.btnLogin.Location = new System.Drawing.Point(367, 363);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(379, 106);
+            this.btnLogin.Size = new System.Drawing.Size(117, 51);
             this.btnLogin.TabIndex = 0;
-            this.btnLogin.Text = "Entrar na conta";
+            this.btnLogin.Text = "Entrar";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
@@ -89,27 +89,27 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Password:";
             // 
-            // textBox1
+            // username_txb
             // 
-            this.textBox1.Location = new System.Drawing.Point(320, 248);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(242, 26);
-            this.textBox1.TabIndex = 5;
+            this.username_txb.Location = new System.Drawing.Point(320, 248);
+            this.username_txb.Name = "username_txb";
+            this.username_txb.Size = new System.Drawing.Size(242, 26);
+            this.username_txb.TabIndex = 5;
             // 
-            // textBox2
+            // password_txb
             // 
-            this.textBox2.Location = new System.Drawing.Point(320, 308);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(242, 26);
-            this.textBox2.TabIndex = 6;
+            this.password_txb.Location = new System.Drawing.Point(320, 308);
+            this.password_txb.Name = "password_txb";
+            this.password_txb.Size = new System.Drawing.Size(242, 26);
+            this.password_txb.TabIndex = 6;
             // 
             // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(915, 540);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.password_txb);
+            this.Controls.Add(this.username_txb);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.criarcontaLink);
@@ -135,7 +135,7 @@
         private LinkLabel criarcontaLink;
         private Label label2;
         private Label label3;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox username_txb;
+        private TextBox password_txb;
     }
 }

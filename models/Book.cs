@@ -15,5 +15,23 @@ namespace biblioteca.models
         public string? Year { get; set; }
         public string? ISBN { get; set; }
         public string? Category { get; set; }
+
+        public string BookIsValid()
+        {
+            if (Title == null || Title == "")
+                return "Titulo não pode estar vazio";
+            if (Author == null || Author == "")
+                return "Autor não pode estar vazio";
+            if (Publisher == null || Publisher == "")
+                return "Editora não pode estar vazia";
+            if (Year == null || Year == "")
+                return "Ano não pode estar vazio";
+            if (ISBN == null || ISBN == "")
+                return "ISBN não pode estar vazio";
+            if (Category == null || Category == "")
+                return "Categoria não pode estar vazia";
+
+            return "";
+        }
     }
 }

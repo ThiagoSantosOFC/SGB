@@ -48,7 +48,17 @@ namespace biblioteca.database
 
         public MySqlConnection getConnection()
         {
-            return new MySqlConnection($"Server={Server};Database={Database};Uid={User};Pwd={Password};Port={Port}");
+            MySqlConnection connection;
+            try
+            {
+                connection = new MySqlConnection($"Server={Server};Database={Database};Uid={User};Pwd={Password};Port={Port};");
+                connection.Open();
+                return connection;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
     }
 }

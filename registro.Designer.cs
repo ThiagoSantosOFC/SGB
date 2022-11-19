@@ -82,9 +82,9 @@
             // btnLogin
             // 
             this.btnLogin.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnLogin.Location = new System.Drawing.Point(232, 394);
+            this.btnLogin.Location = new System.Drawing.Point(327, 394);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(379, 106);
+            this.btnLogin.Size = new System.Drawing.Size(182, 62);
             this.btnLogin.TabIndex = 7;
             this.btnLogin.Text = "Criar conta!";
             this.btnLogin.UseVisualStyleBackColor = true;
