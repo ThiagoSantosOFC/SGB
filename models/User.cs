@@ -31,4 +31,46 @@ namespace biblioteca.models
                 return "";
         }
     }
+
+    public class UserFactory
+    {
+        //Builder pattern
+
+        private User user = new User();
+        public bool Password = false;
+        public bool Email = false;
+        public bool EmailIsValid = false;
+        public bool Name = false;
+
+        public UserFactory setName(string name)
+        {
+            user.Name = name;
+            Password = true;
+            return this;
+        }
+
+        public UserFactory setEmail(string email)
+        {
+            user.Email = email;
+            Email = true;
+
+            if (email.Contains("@") && email.Contains("."))
+                EmailIsValid = true;
+            else EmailIsValid = false;
+            
+            return this;
+        }
+
+        public UserFactory setPassword(string password)
+        {
+            user.Password = password;
+            Name = true;
+            return this;
+        }
+
+        public User build()
+        {
+            return user;
+        }
+    }
 }

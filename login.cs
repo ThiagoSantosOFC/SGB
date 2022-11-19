@@ -42,12 +42,12 @@ namespace SGB
         private void btnLogin_Click(object sender, EventArgs e)
         {
             User user = new();
-            Criptography cripto = new();
 
             user.Name = username_txb.Text;
-            user.Password = 
+            user.Password = Criptography.sha256_hash(password_txb.Text);
 
-            
+            UserDB userDB = new();
+            Connection connection = new();
         }
     }
 }
