@@ -47,8 +47,7 @@ namespace SGB
             .build();
             if (email_txb.Text == "" || username_txb.Text == "" || password_txb.Text == "" || confirmarPassword_txb.Text == "")
             {
-                MessageBox.Show("Preencha todos os campos");    user = null;
-                return;
+                MessageBox.Show("Preencha todos os campos");
             }
             else if (user.Password != Criptography.sha256_hash(confirmarPassword_txb.Text))
             {
@@ -74,18 +73,19 @@ namespace SGB
 
                 User verifyUser = userDB.Get(user);
 
-                if (verifyUser != null)
+                if ((verifyUser.Name != null) && (verifyUser.Email != null))
                 {
                     MessageBox.Show("Utilizador já existe");
-                    return;
                 }
                 else
                 {
-                    userDB.Insert(user);
-                    MessageBox.Show("Utilizador criado com sucesso");
-                    this.Hide();
-                    login log = new login();
-                    log.Show();
+                    if(userDB.Insert(user) == true)
+                    {
+                        MessageBox.Show("Registado com sucesso");
+                        this.Hide();
+                        login log = new login();
+                        log.Show();
+                    }
                 }
             }
         }
