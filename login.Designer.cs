@@ -36,6 +36,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.username_txb = new System.Windows.Forms.TextBox();
             this.password_txb = new System.Windows.Forms.TextBox();
+            this.remenberme_chb = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // btnLogin
@@ -103,11 +104,22 @@
             this.password_txb.Size = new System.Drawing.Size(242, 26);
             this.password_txb.TabIndex = 6;
             // 
+            // remenberme_chb
+            // 
+            this.remenberme_chb.AutoSize = true;
+            this.remenberme_chb.Location = new System.Drawing.Point(320, 436);
+            this.remenberme_chb.Name = "remenberme_chb";
+            this.remenberme_chb.Size = new System.Drawing.Size(124, 22);
+            this.remenberme_chb.TabIndex = 7;
+            this.remenberme_chb.Text = "Lembre de min.";
+            this.remenberme_chb.UseVisualStyleBackColor = true;
+            // 
             // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(915, 540);
+            this.Controls.Add(this.remenberme_chb);
             this.Controls.Add(this.password_txb);
             this.Controls.Add(this.username_txb);
             this.Controls.Add(this.label3);
@@ -137,5 +149,6 @@
         private Label label3;
         private TextBox username_txb;
         private TextBox password_txb;
+        private CheckBox remenberme_chb;
     }
 }

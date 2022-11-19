@@ -137,16 +137,16 @@ namespace biblioteca.tools
 
        
         // Get section
-        public string? GetSection(string name)
+        public Section GetSection(string name)
         {
-            // get the section.value from the dictionary
+            // get section from dictionary
             try
             {
-                return sections[name].value;
+                return sections[name];
             }
             catch (Exception)
             {
-                return null;
+                return new Section();
             }
         }
 

@@ -30,12 +30,18 @@ namespace SGB
             SectionTools sectionTools = new();
             sectionTools.LoadSectionFile();
             User user = new();
-            user.Name = sectionTools.GetSection("username");
-            user.Password = sectionTools.GetSection("password");
-            user.Email = sectionTools.GetSection("email");
-            user.Id = Convert.ToInt32(sectionTools.GetSection("id"));
+            Section username = new();
+            Section password = new();
 
-            username_txb.Text = user.Name;
+            password = sectionTools.GetSection("password");
+            username = sectionTools.GetSection("username");
+
+            if (password.temporary == true)
+            {
+                username_txb.Text = username.value;
+                password_txb.Text = password.value;
+                remenberme_chb.Checked = true;
+            }
         }
 
         private void criarcontaLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -52,7 +58,7 @@ namespace SGB
             User user = new();
 
             user.Name = username_txb.Text;
-            user.Password = Criptography.sha256_hash(password_txb.Text);
+            user.Password = password_txb.Text;
 
             MessageBox.Show(user.Password);
 
@@ -72,22 +78,33 @@ namespace SGB
 
             MessageBox.Show(validate.Name + " " + validate.Password);
 
-            if (validate.Name == null || validate.Password == null)
+            if (validate == null)
             {
                 MessageBox.Show("Username ou password errados");
                 return;
             }
-            else if (validate.Password == user.Password)
+            else if (validate.Password == Criptography.sha256_hash(user.Password))
             {
                 MessageBox.Show("Login efetuado com sucesso");
                 
-                sectionTools.AddSection("username", user.Name, true, false);
-                sectionTools.AddSection("password", user.Password, true, false);
-                sectionTools.AddSection("email", user.Email, true, false);
-                sectionTools.AddSection("id", user.Id.ToString(), true, false);
-                sectionTools.SaveSectionFile();
-
-                this.Hide();
+                if(remenberme_chb.Checked == true)
+                {
+                    sectionTools.AddSection("username", user.Name, true, false);
+                    sectionTools.AddSection("password", user.Password, true, false);
+                    sectionTools.AddSection("email", user.Email, true, false);
+                    sectionTools.AddSection("id", user.Id.ToString(), true, false);
+                    sectionTools.SaveSectionFile();
+                    this.Hide();
+                }
+                else
+                {
+                    sectionTools.AddSection("username", user.Name, false, false);
+                    sectionTools.AddSection("password", user.Password, false, false);
+                    sectionTools.AddSection("email", user.Email, false, false);
+                    sectionTools.AddSection("id", user.Id.ToString(), false, false);
+                    sectionTools.SaveSectionFile();
+                    this.Hide();
+                }
             }
             else
             {
