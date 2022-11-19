@@ -103,6 +103,7 @@
             this.password_txb.Name = "password_txb";
             this.password_txb.Size = new System.Drawing.Size(242, 26);
             this.password_txb.TabIndex = 6;
+            this.password_txb.UseSystemPasswordChar = true;
             // 
             // remenberme_chb
             // 

@@ -135,6 +135,50 @@ namespace biblioteca.tools
             sections.Remove(name);
         }
 
+        //Delete section from file
+        public void DeleteSection(string? name)
+        {
+            // Read file for List<Section>
+            // Remove section from List<Section>
+            // Write List<Section> to file
+
+            List<Section> sectionsRemove = new List<Section>();
+
+            // open file
+            using (BinaryReader reader = new BinaryReader(File.Open(fileName, FileMode.Open)))
+            {
+                // read sections
+                while (reader.PeekChar() > -1)
+                {
+                    // read section
+                    Section section = new Section();
+                    section.name = reader.ReadString();
+                    section.value = reader.ReadString();
+                    section.temporary = reader.ReadBoolean();
+                    section.permanent = reader.ReadBoolean();
+
+                    // add section to list
+                    sectionsRemove.Add(section);
+                }
+            }
+
+            // remove section from list
+            sectionsRemove.RemoveAll(x => x.name == name);
+
+            // open file
+            using (BinaryWriter writer = new BinaryWriter(File.Open(fileName, FileMode.Open)))
+            {
+                // write sections
+                foreach (Section section in sectionsRemove)
+                {
+                    writer.Write(section.name != null ? section.name : "");
+                    writer.Write(section.value != null ? section.value : "");
+                    writer.Write(section.temporary);
+                    writer.Write(section.permanent);
+                }
+            }
+        }
+
        
         // Get section
         public Section GetSection(string name)

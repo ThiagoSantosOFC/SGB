@@ -36,7 +36,7 @@ namespace SGB
             password = sectionTools.GetSection("password");
             username = sectionTools.GetSection("username");
 
-            if (password.temporary == true)
+            if (password.permanent == true)
             {
                 username_txb.Text = username.value;
                 password_txb.Text = password.value;
@@ -89,10 +89,10 @@ namespace SGB
                 
                 if(remenberme_chb.Checked == true)
                 {
-                    sectionTools.AddSection("username", user.Name, true, false);
-                    sectionTools.AddSection("password", user.Password, true, false);
-                    sectionTools.AddSection("email", user.Email, true, false);
-                    sectionTools.AddSection("id", user.Id.ToString(), true, false);
+                    sectionTools.AddSection("username", user.Name, false, true);
+                    sectionTools.AddSection("password", user.Password, false, true);
+                    sectionTools.AddSection("email", user.Email, true, true);
+                    sectionTools.AddSection("id", user.Id.ToString(), false, true);
                     sectionTools.SaveSectionFile();
                     this.Hide();
                 }
