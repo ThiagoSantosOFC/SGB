@@ -114,7 +114,7 @@ namespace biblioteca.tools
 
 
         // Add section
-        public void AddSection(string name, string value, bool temporary, bool permanent)
+        public void AddSection(string name, string? value, bool temporary, bool permanent)
         {
             // create section
             Section section = new Section();
@@ -137,10 +137,17 @@ namespace biblioteca.tools
 
        
         // Get section
-        public Section GetSection(string name)
+        public string? GetSection(string name)
         {
-            // get section from dictionary
-            return sections[name];
+            // get the section.value from the dictionary
+            try
+            {
+                return sections[name].value;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         // Purge all temporary sections

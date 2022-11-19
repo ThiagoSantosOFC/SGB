@@ -1,4 +1,5 @@
 using Testing;
+using biblioteca.tools;
 namespace SGB
 {
     internal static class Program
@@ -10,6 +11,9 @@ namespace SGB
         static void Main()
         {   
             /*dbTests.TestGetBook();*/
+            SectionTools sectionTools = new();
+            sectionTools.CreateSectionFile();
+
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
