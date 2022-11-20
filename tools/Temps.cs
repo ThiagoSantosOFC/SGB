@@ -71,5 +71,23 @@ namespace biblioteca.tools
             }
         }
 
+        //Write file
+        public void WriteFile()
+        {
+            //Clear file
+            ClearFile();
+
+            //Write file
+            foreach (KeyValuePair<string, string> item in temp)
+            {
+                File.AppendAllText(fileName, item.Key + "=" + item.Value + Environment.NewLine);
+            }
+        }
+
+        //Add data to dictionary
+        public void Add(string name, string value)
+        {
+            temp.Add(name, value);
+        }
     }
 }
