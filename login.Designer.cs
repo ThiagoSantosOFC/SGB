@@ -44,7 +44,7 @@
             this.btnLogin.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnLogin.Location = new System.Drawing.Point(367, 363);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(117, 51);
+            this.btnLogin.Size = new System.Drawing.Size(135, 51);
             this.btnLogin.TabIndex = 0;
             this.btnLogin.Text = "Entrar";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -108,7 +108,7 @@
             // remenberme_chb
             // 
             this.remenberme_chb.AutoSize = true;
-            this.remenberme_chb.Location = new System.Drawing.Point(320, 436);
+            this.remenberme_chb.Location = new System.Drawing.Point(329, 335);
             this.remenberme_chb.Name = "remenberme_chb";
             this.remenberme_chb.Size = new System.Drawing.Size(124, 22);
             this.remenberme_chb.TabIndex = 7;

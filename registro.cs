@@ -35,10 +35,7 @@ namespace SGB
         {
             //verifica se as password são iguais, verifica se o email é válido
             
-            // password_txb.Text == ""
-            //     || confirmarPassword_txb.Text == ""
-            //     || email_txb.Text == ""
-            //     || username_txb.Text == ""
+      
             UserFactory userFactory = new();
             User user = userFactory
             .setEmail(email_txb.Text)

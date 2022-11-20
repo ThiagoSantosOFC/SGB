@@ -55,6 +55,15 @@ namespace SGB
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+
+        if (username_txb.Text == "" || password_txb.Text == "")
+            {
+                MessageBox.Show("Preencha todos os campos", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else { 
+            
+           
+
             User user = new();
 
             user.Name = username_txb.Text;
@@ -104,6 +113,7 @@ namespace SGB
             {
                 MessageBox.Show("Ocorreu um erro!");
                 return;
+            }
             }
         }
     }
