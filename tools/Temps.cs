@@ -7,6 +7,11 @@ using System.IO;
 
 namespace biblioteca.tools
 {
+    public class temporary
+    {
+        string? name { get; set; }
+        string? value { get; set; }
+    }
     public class Temp
     {
         /*
@@ -21,14 +26,24 @@ namespace biblioteca.tools
         name=value
 
         example:
-        username=joao
+        book=art of war
 
-        
+        Algorithm:
+        1. Read the file line by line.
+        2. Split the line into two parts: name and value.
+            - All before the first "=" is the name.
+            - All after the first "=" is the value.
+        2. Add the data to a dictionary.
+
         */
         //Create txt file for temporary data
         string fileName = "temp.txt";
 
-        public void CreateTempFile()
+        //Create dictionary for temporary data
+        Dictionary<string, string> temp = new Dictionary<string, string>();
+
+        //Create file
+        public void CreateFile()
         {
             if (!File.Exists(fileName))
             {
@@ -36,6 +51,25 @@ namespace biblioteca.tools
             }
         }
 
-        //Save data in the file
+        //Clear file content
+        public void ClearFile()
+        {
+            File.WriteAllText(fileName, "");
+        }
+
+        //Read file
+        public void ReadFile()
+        {
+            //Read file
+            string[] lines = File.ReadAllLines(fileName);
+
+            //Split lines into name and value
+            foreach (string line in lines)
+            {
+                string[] parts = line.Split('=');
+                temp.Add(parts[0], parts[1]);
+            }
+        }
+
     }
 }
