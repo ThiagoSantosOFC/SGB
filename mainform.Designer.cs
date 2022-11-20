@@ -39,7 +39,9 @@
             this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sairConta = new System.Windows.Forms.LinkLabel();
-            this.attDados = new System.Windows.Forms.Button();
+            this.addLivro = new System.Windows.Forms.Button();
+            this.openReq = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.datagridLivros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -112,20 +114,41 @@
             this.sairConta.Text = "Fazer logout";
             this.sairConta.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.sairConta_LinkClicked);
             // 
-            // attDados
+            // addLivro
             // 
-            this.attDados.Location = new System.Drawing.Point(12, 439);
-            this.attDados.Name = "attDados";
-            this.attDados.Size = new System.Drawing.Size(149, 53);
-            this.attDados.TabIndex = 2;
-            this.attDados.Text = "Atualizar dados";
-            this.attDados.UseVisualStyleBackColor = true;
-            this.attDados.Click += new System.EventHandler(this.attDados_Click);
+            this.addLivro.Location = new System.Drawing.Point(263, 384);
+            this.addLivro.Name = "addLivro";
+            this.addLivro.Size = new System.Drawing.Size(232, 108);
+            this.addLivro.TabIndex = 2;
+            this.addLivro.Text = "Adicionar Livro";
+            this.addLivro.UseVisualStyleBackColor = true;
+            this.addLivro.Click += new System.EventHandler(this.attDados_Click);
+            // 
+            // openReq
+            // 
+            this.openReq.Location = new System.Drawing.Point(521, 384);
+            this.openReq.Name = "openReq";
+            this.openReq.Size = new System.Drawing.Size(232, 108);
+            this.openReq.TabIndex = 3;
+            this.openReq.Text = "Requisitar livro";
+            this.openReq.UseVisualStyleBackColor = true;
+            this.openReq.Click += new System.EventHandler(this.openReq_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(12, 384);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(232, 108);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Atualizar dados";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // mainform
             // 
             this.ClientSize = new System.Drawing.Size(867, 504);
-            this.Controls.Add(this.attDados);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.openReq);
+            this.Controls.Add(this.addLivro);
             this.Controls.Add(this.sairConta);
             this.Controls.Add(this.datagridLivros);
             this.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -145,7 +168,7 @@
         private DataGridView datagridLivros;
         private DataGridViewTextBoxColumn id;
         private LinkLabel sairConta;
-        private Button attDados;
+        private Button addLivro;
         private BindingSource bookBindingSource;
         private DataGridViewTextBoxColumn idlivro;
         private DataGridViewTextBoxColumn titulo;
@@ -154,5 +177,7 @@
         private DataGridViewTextBoxColumn editora;
         private DataGridViewTextBoxColumn ano;
         private DataGridViewTextBoxColumn categoria;
+        private Button openReq;
+        private Button button2;
     }
 }

@@ -191,7 +191,8 @@
             this.Controls.Add(this.authorTxb);
             this.Controls.Add(this.titleTxb);
             this.Name = "editBooks";
-            this.Text = "editBooks";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Editar Livros";
             this.Load += new System.EventHandler(this.editBooks_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

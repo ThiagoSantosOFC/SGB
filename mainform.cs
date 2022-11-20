@@ -85,5 +85,12 @@ namespace SGB
             editBooks edit = new editBooks();
             edit.Show();
         }
+
+        private void openReq_Click(object sender, EventArgs e)
+        {
+            requisicao req = new requisicao();
+            req.Show();
+            this.Hide();
+        }
     }
 }

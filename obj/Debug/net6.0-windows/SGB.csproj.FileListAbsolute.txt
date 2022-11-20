@@ -27,7 +27,6 @@ C:\Users\pkgam\Desktop\SGB\obj\Debug\net6.0-windows\SGB.genruntimeconfig.cache
 C:\Users\pkgam\Desktop\SGB\obj\Debug\net6.0-windows\ref\SGB.dll
 C:\Users\pkgam\Desktop\SGB\bin\Debug\net6.0-windows\SGB.dll.config
 C:\Users\tmate\Documents\GitHub\SGB\obj\Debug\net6.0-windows\SGB.csproj.AssemblyReference.cache
-C:\Users\tmate\Documents\GitHub\SGB\obj\Debug\net6.0-windows\SGB.books.resources
 C:\Users\tmate\Documents\GitHub\SGB\obj\Debug\net6.0-windows\SGB.login.resources
 C:\Users\tmate\Documents\GitHub\SGB\obj\Debug\net6.0-windows\SGB.mainform.resources
 C:\Users\tmate\Documents\GitHub\SGB\obj\Debug\net6.0-windows\SGB.registro.resources
@@ -58,3 +57,6 @@ C:\Users\tmate\Documents\GitHub\SGB\obj\Debug\net6.0-windows\SGB.genruntimeconfi
 C:\Users\tmate\Documents\GitHub\SGB\obj\Debug\net6.0-windows\ref\SGB.dll
 C:\Users\pkgam\Desktop\SGB\obj\Debug\net6.0-windows\SGB.mainform.resources
 C:\Users\pkgam\Desktop\SGB\obj\Debug\net6.0-windows\SGB.editBooks.resources
+C:\Users\tmate\Documents\GitHub\SGB\obj\Debug\net6.0-windows\SGB.editBooks.resources
+C:\Users\tmate\Documents\GitHub\SGB\obj\Debug\net6.0-windows\SGB.requisicao.resources
+C:\Users\tmate\Documents\GitHub\SGB\obj\Debug\net6.0-windows\SGB.addLivro.resources
