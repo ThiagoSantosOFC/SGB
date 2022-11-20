@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,28 +11,20 @@ namespace biblioteca.tools
 {
         /*
             Section is a class that will be used to save temporary data to be used in the program.
-
             Section data is save in binary file that contains a list of Section objects.
-
             The file is located in the same directory as the program.
-
             The file name is "section.bin".
-
             work:
-
             Save data in the file.
             When the program starts, it will read the file and load the data into the program.
             When the program ends, it will save the data in the file.
-
             all data is saved into a dictionary of Section objects.
-
             The dictionary key is the name of the section.
             The dictionary value is the Section object.
             
             example:
             Dictionary<string, Section> sections = new Dictionary<string, Section>();
             sections.Add("books", new Section("books", "books.bin"));
-
             The Section object has the following properties:
             - name: string
             - value: string
@@ -93,22 +86,29 @@ namespace biblioteca.tools
             // create file if not exists
             CreateSectionFile();
 
-            // open file
-            using (BinaryReader reader = new BinaryReader(File.Open(fileName, FileMode.Open)))
+            try
             {
-                // read sections
-                while (reader.PeekChar() > -1)
+                // open file
+                using (BinaryReader reader = new BinaryReader(File.Open(fileName, FileMode.Open)))
                 {
-                    // read section
-                    Section section = new Section();
-                    section.name = reader.ReadString();
-                    section.value = reader.ReadString();
-                    section.temporary = reader.ReadBoolean();
-                    section.permanent = reader.ReadBoolean();
+                    // read sections
+                    while (reader.PeekChar() > -1)
+                    {
+                        // read section
+                        Section section = new Section();
+                        section.name = reader.ReadString();
+                        section.value = reader.ReadString();
+                        section.temporary = reader.ReadBoolean();
+                        section.permanent = reader.ReadBoolean();
 
-                    // add section to dictionary
-                    sections.Add(section.name, section);
+                        // add section to dictionary
+                        sections.Add(section.name, section);
+                    }
                 }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -147,9 +147,12 @@ namespace biblioteca.tools
             // open file
             using (BinaryReader reader = new BinaryReader(File.Open(fileName, FileMode.Open)))
             {
+                // Go to start of file
+                reader.BaseStream.Seek(0, SeekOrigin.Begin);
+
                 // read sections
-                while (reader.PeekChar() > -1)
-                {
+                while (reader.PeekChar() != -1)
+                {   
                     // read section
                     Section section = new Section();
                     section.name = reader.ReadString();

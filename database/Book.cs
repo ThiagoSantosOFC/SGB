@@ -136,13 +136,13 @@ namespace biblioteca.database
 
         public List<Book> GetBooks()
         {
-            string query = "SELECT * FROM book";
+            string procedure = "getallbooks";
 
             try
             {
                 using (Connection)
                 {
-                    List<Book> result = Connection.Query<Book>(query).ToList();
+                    List<Book> result = Connection.Query<Book>(procedure, commandType: CommandType.StoredProcedure).ToList();
                     return result;
                 }
             }

@@ -56,3 +56,5 @@ C:\Users\tmate\Documents\GitHub\SGB\bin\Debug\net6.0-windows\BouncyCastle.Crypto
 C:\Users\tmate\Documents\GitHub\SGB\obj\Debug\net6.0-windows\SGB.csproj.CopyComplete
 C:\Users\tmate\Documents\GitHub\SGB\obj\Debug\net6.0-windows\SGB.genruntimeconfig.cache
 C:\Users\tmate\Documents\GitHub\SGB\obj\Debug\net6.0-windows\ref\SGB.dll
+C:\Users\pkgam\Desktop\SGB\obj\Debug\net6.0-windows\SGB.mainform.resources
+C:\Users\pkgam\Desktop\SGB\obj\Debug\net6.0-windows\SGB.editBooks.resources
