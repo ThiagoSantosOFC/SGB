@@ -69,8 +69,6 @@ namespace SGB
             user.Name = username_txb.Text;
             user.Password = password_txb.Text;
 
-            MessageBox.Show(user.Password);
-
             UserDB userDB = new();
             Connection connection = new();
             SectionTools sectionTools = new();
@@ -79,7 +77,7 @@ namespace SGB
 
             User validate = userDB.Get(user);
 
-            MessageBox.Show(validate.Name + " " + validate.Password);
+    
 
             if (validate == null)
             {
@@ -89,16 +87,20 @@ namespace SGB
             else if (validate.Password == Criptography.sha256_hash(user.Password))
             {
                 MessageBox.Show("Login efetuado com sucesso");
-                
-                if(remenberme_chb.Checked == true)
+
+                    
+                    if (remenberme_chb.Checked == true)
                 {
                     sectionTools.AddSection("username", user.Name, false, true);
                     sectionTools.AddSection("password", user.Password, false, true);
                     sectionTools.AddSection("email", user.Email, true, true);
                     sectionTools.AddSection("id", user.Id.ToString(), false, true);
                     sectionTools.SaveSectionFile();
-                    this.Hide();
-                }
+                    //open mainform
+                        this.Hide();
+                        mainform main = new mainform();
+                        main.Show();
+                    }
                 else
                 {
                     sectionTools.AddSection("username", user.Name, false, false);
@@ -106,8 +108,11 @@ namespace SGB
                     sectionTools.AddSection("email", user.Email, false, false);
                     sectionTools.AddSection("id", user.Id.ToString(), false, false);
                     sectionTools.SaveSectionFile();
-                    this.Hide();
-                }
+                        //open mainform
+                        this.Hide();
+                        mainform main = new mainform();
+                        main.Show();
+                    }
             }
             else
             {
