@@ -23,16 +23,31 @@ namespace SGB
 
         private void mainform_Load(object sender, EventArgs e)
         {
-            //select books from database
+            List<Book> books = new();
+            Book book = new();
+            Connection connection = new();
+            BookDB bookDB = new();
+            bookDB.SetConnection(connection.getConnection());
+
+            books = bookDB.GetBooks();
+
+            foreach (Book b in books)
+            {
+                //Ordem de colunas: Id, Titulo, Autor, Editora, Ano, Categoria
+                                                
+            }
         }
 
         private void sairConta_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             //logout from accout, dispose section
+            SectionTools sectionTools = new();
+
+            sectionTools.PurgeTemporarySections();
+
             this.Hide();
             login log = new login();
             log.Show();
-            
         }
 
         private void attDados_Click(object sender, EventArgs e)
