@@ -19,12 +19,6 @@ namespace Testing
 
                 Connection connection = new Connection();
 
-                connection.setDatabase("biblioteca");
-                connection.setServer("localhost");
-                connection.setUser("root");
-                connection.setPassword("123456789");
-                connection.setPort("3306");
-
                 data.SetConnection(connection.getConnection());
 
                 User result = data.Get(user);
@@ -48,12 +42,6 @@ namespace Testing
                 IData data = new UserDB();
                 
                 Connection connection = new Connection();
-
-                connection.setDatabase("biblioteca");
-                connection.setServer("localhost");
-                connection.setUser("root");
-                connection.setPassword("123456789");
-                connection.setPort("3306");
 
                 data.SetConnection(connection.getConnection());
                 
@@ -82,12 +70,6 @@ namespace Testing
                 IData data = new UserDB();
 
                 Connection connection = new Connection();
-
-                connection.setDatabase("biblioteca");
-                connection.setServer("localhost");
-                connection.setUser("root");
-                connection.setPassword("123456789");
-                connection.setPort("3306");
 
                 data.SetConnection(connection.getConnection());
 
@@ -119,11 +101,6 @@ namespace Testing
 
                 Connection connection = new Connection();
 
-                connection.setDatabase("biblioteca");
-                connection.setServer("localhost");
-                connection.setUser("root");
-                connection.setPassword("123456789");
-                connection.setPort("3306");
 
                 data.SetConnection(connection.getConnection());
 
@@ -157,11 +134,6 @@ namespace Testing
 
                 Connection connection = new Connection();
 
-                connection.setDatabase("biblioteca");
-                connection.setServer("localhost");
-                connection.setUser("root");
-                connection.setPassword("123456789");
-                connection.setPort("3306");
 
                 data.SetConnection(connection.getConnection());
 
@@ -190,11 +162,7 @@ namespace Testing
 
                 Connection connection = new Connection();
 
-                connection.setDatabase("biblioteca");
-                connection.setServer("localhost");
-                connection.setUser("root");
-                connection.setPassword("123456789");
-                connection.setPort("3306");
+
 
                 data.SetConnection(connection.getConnection());
 
@@ -224,11 +192,6 @@ namespace Testing
 
                 Connection connection = new Connection();
 
-                connection.setDatabase("biblioteca");
-                connection.setServer("localhost");
-                connection.setUser("root");
-                connection.setPassword("123456789");
-                connection.setPort("3306");
 
                 data.SetConnection(connection.getConnection());
 
@@ -264,11 +227,7 @@ namespace Testing
 
                 Connection connection = new Connection();
 
-                connection.setDatabase("biblioteca");
-                connection.setServer("localhost");
-                connection.setUser("root");
-                connection.setPassword("123456789");
-                connection.setPort("3306");
+
 
                 data.SetConnection(connection.getConnection());
 
@@ -303,11 +262,7 @@ namespace Testing
 
                 Connection connection = new Connection();
 
-                connection.setDatabase("biblioteca");
-                connection.setServer("localhost");
-                connection.setUser("root");
-                connection.setPassword("123456789");
-                connection.setPort("3306");
+   
 
                 data.SetConnection(connection.getConnection());
 
@@ -338,12 +293,6 @@ namespace Testing
                 IData data = new RequisitionDB();
 
                 Connection connection = new Connection();
-
-                connection.setDatabase("biblioteca");
-                connection.setServer("localhost");
-                connection.setUser("root");
-                connection.setPassword("123456789");
-                connection.setPort("3306");
 
                 data.SetConnection(connection.getConnection());
 

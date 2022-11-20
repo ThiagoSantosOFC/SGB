@@ -64,11 +64,6 @@ namespace SGB
                 UserDB userDB = new();
                 Connection connection = new();
 
-                connection.setDatabase("biblioteca");
-                connection.setServer("localhost");
-                connection.setUser("root");
-                connection.setPassword("123456789");
-
                 userDB.SetConnection(connection.getConnection());
 
                 User verifyUser = userDB.Get(user);

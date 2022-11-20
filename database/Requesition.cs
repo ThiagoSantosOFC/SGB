@@ -122,5 +122,47 @@ namespace biblioteca.database
                 return false;
             }
         }
+    
+        public List<Requesition> GetRequisitions()
+        {
+            string query = "SELECT * FROM requisicao";
+
+            try
+            {
+                using (Connection)
+                {
+                    List<Requesition> result = Connection.Query<Requesition>(query).ToList();
+                    return result;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return new List<Requesition>();
+            }
+        }
+
+        public dynamic GetUserRequisition(int userId)
+        {
+            //Inner join para substituir o id do livro pelo nome do livro e o id do utilizador pelo nome do utilizador
+            string query = "SELECT requisicoes.id, requisicoes.levantamento, requisicoes.entrega, requisicoes.book_id, requisicoes.user_id, book.title, user.username FROM requisicoes INNER JOIN book ON requisicoes.book_id = book.book_id INNER JOIN user ON requisicoes.user_id = user.id WHERE requisicoes.user_id = @user_id";
+
+            try
+            {
+                using (Connection)
+                {
+                    dynamic result = Connection.QueryFirst<Requesition>(
+                        query,
+                        new { user_id = userId }
+                        );
+                    return result;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return new Requesition();
+            }
+        }
     }
 }

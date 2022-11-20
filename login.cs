@@ -66,12 +66,6 @@ namespace SGB
             Connection connection = new();
             SectionTools sectionTools = new();
 
-            connection.setDatabase("biblioteca");
-            connection.setServer("localhost");
-            connection.setPort("3306");
-            connection.setUser("root");
-            connection.setPassword("123456789");
-
             userDB.SetConnection(connection.getConnection());
 
             User validate = userDB.Get(user);

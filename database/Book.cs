@@ -133,5 +133,24 @@ namespace biblioteca.database
                 return false;
             }
         }
+
+        public List<Book> GetBooks()
+        {
+            string query = "SELECT * FROM book";
+
+            try
+            {
+                using (Connection)
+                {
+                    List<Book> result = Connection.Query<Book>(query).ToList();
+                    return result;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return new List<Book>();
+            }
+        }
     }
 }
