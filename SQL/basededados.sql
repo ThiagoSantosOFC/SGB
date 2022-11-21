@@ -185,9 +185,9 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `insertbook`(
 )
 BEGIN
 	DECLARE bookid INT DEFAULT 0;
-	SET bookid = ((SELECT max(`book`.`book_id`) FROM book ) + 1);
+	SET bookid = ((SELECT max(`book`.`id`) FROM book ) + 1);
 	INSERT INTO book (
-    book_id,
+    id,
     title,
     author,
     isbn,
@@ -221,7 +221,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `insertrequisicao`(
 )
 BEGIN
 	DECLARE reqid INT DEFAULT 0;
-	SET reqid = ((SELECT max(`requisicoes`.`id`) FROM requisicoes) + 1) or 1;
+	SET reqid = ((SELECT max(`requisicoes`.`id`) FROM requisicoes) + 1);
     INSERT INTO `biblioteca`.`requisicoes`
 	(
     `user_id`,
@@ -315,14 +315,13 @@ DELIMITER $$
 USE `biblioteca`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `updaterequisicao`(
 	in entrega varchar(45),
-    in userid INT,
-    in bookid INT
+    in id INT
 )
 BEGIN
 	UPDATE `biblioteca`.`requisicoes`
 	SET
 	`entrega` = entrega
-	WHERE `book_id` = bookid and `user_id` = userid;
+	WHERE `requisicoes`.`id` = id;
 END$$
 
 DELIMITER ;
