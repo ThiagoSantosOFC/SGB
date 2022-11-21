@@ -60,3 +60,7 @@ C:\Users\pkgam\Desktop\SGB\obj\Debug\net6.0-windows\SGB.editBooks.resources
 C:\Users\tmate\Documents\GitHub\SGB\obj\Debug\net6.0-windows\SGB.editBooks.resources
 C:\Users\tmate\Documents\GitHub\SGB\obj\Debug\net6.0-windows\SGB.requisicao.resources
 C:\Users\tmate\Documents\GitHub\SGB\obj\Debug\net6.0-windows\SGB.addLivro.resources
+C:\Users\pkgam\Desktop\SGB\obj\Debug\net6.0-windows\SGB.requisicao.resources
+C:\Users\pkgam\Desktop\SGB\obj\Debug\net6.0-windows\SGB.insertBook.resources
+C:\Users\pkgam\Desktop\SGB\obj\Debug\net6.0-windows\SGB.insertRequisicao.resources
+C:\Users\pkgam\Desktop\SGB\obj\Debug\net6.0-windows\SGB.resquisitionEdit.resources

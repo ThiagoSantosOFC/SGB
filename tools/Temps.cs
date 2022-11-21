@@ -60,14 +60,21 @@ namespace biblioteca.tools
         //Read file
         public void ReadFile()
         {
-            //Read file
-            string[] lines = File.ReadAllLines(fileName);
-
-            //Split lines into name and value
-            foreach (string line in lines)
+            try
             {
-                string[] parts = line.Split('=');
-                temp.Add(parts[0], parts[1]);
+                //Read file
+                string[] lines = File.ReadAllLines(fileName);
+
+                //Split lines into name and value
+                foreach (string line in lines)
+                {
+                    string[] parts = line.Split('=');
+                    temp.Add(parts[0], parts[1]);
+                }
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
             }
         }
 
@@ -88,6 +95,25 @@ namespace biblioteca.tools
         public void Add(string name, string value)
         {
             temp.Add(name, value);
+        }
+
+        //Remove data from dictionary
+        public void Remove(string name)
+        {
+            temp.Remove(name);
+        }
+
+        //Get data from dictionary
+        public string Get(string name)
+        {
+            try
+            {
+                return temp[name];
+            }
+            catch (Exception)
+            {
+                return "";
+            }
         }
     }
 }

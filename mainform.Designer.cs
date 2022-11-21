@@ -40,8 +40,8 @@
             this.bookBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sairConta = new System.Windows.Forms.LinkLabel();
             this.addLivro = new System.Windows.Forms.Button();
-            this.openReq = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.openReq = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.datagridLivros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -124,16 +124,6 @@
             this.addLivro.UseVisualStyleBackColor = true;
             this.addLivro.Click += new System.EventHandler(this.attDados_Click);
             // 
-            // openReq
-            // 
-            this.openReq.Location = new System.Drawing.Point(521, 384);
-            this.openReq.Name = "openReq";
-            this.openReq.Size = new System.Drawing.Size(232, 108);
-            this.openReq.TabIndex = 3;
-            this.openReq.Text = "Requisitar livro";
-            this.openReq.UseVisualStyleBackColor = true;
-            this.openReq.Click += new System.EventHandler(this.openReq_Click);
-            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(12, 384);
@@ -142,12 +132,23 @@
             this.button2.TabIndex = 4;
             this.button2.Text = "Atualizar dados";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // openReq
+            // 
+            this.openReq.Location = new System.Drawing.Point(511, 384);
+            this.openReq.Name = "openReq";
+            this.openReq.Size = new System.Drawing.Size(232, 108);
+            this.openReq.TabIndex = 5;
+            this.openReq.Text = "Abrir Requisições";
+            this.openReq.UseVisualStyleBackColor = true;
+            this.openReq.Click += new System.EventHandler(this.openReq_Click_1);
             // 
             // mainform
             // 
             this.ClientSize = new System.Drawing.Size(867, 504);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.openReq);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.addLivro);
             this.Controls.Add(this.sairConta);
             this.Controls.Add(this.datagridLivros);
@@ -177,7 +178,7 @@
         private DataGridViewTextBoxColumn editora;
         private DataGridViewTextBoxColumn ano;
         private DataGridViewTextBoxColumn categoria;
-        private Button openReq;
         private Button button2;
+        private Button openReq;
     }
 }

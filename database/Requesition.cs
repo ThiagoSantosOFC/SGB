@@ -107,9 +107,8 @@ namespace biblioteca.database
                         procedure,
                         new
                         {
-                            entrega = imput.Delivered,
-                            userid = imput.UserId,
-                            bookid = imput.BookId
+                            entrega = imput.entrega,
+                            id = imput.Id
                         },
                         commandType: CommandType.StoredProcedure
                     );
@@ -123,15 +122,15 @@ namespace biblioteca.database
             }
         }
     
-        public List<Requesition> GetRequisitions()
+        public List<Requesition> GetRequisitions(dynamic imput)
         {
-            string query = "SELECT * FROM requisicao";
+            string query = "SELECT * FROM requisicoes WHERE user_id = @userid;";
 
             try
             {
                 using (Connection)
                 {
-                    List<Requesition> result = Connection.Query<Requesition>(query).ToList();
+                    List<Requesition> result = Connection.Query<Requesition>(query, new { userid = imput.Id }).ToList();
                     return result;
                 }
             }
@@ -139,29 +138,6 @@ namespace biblioteca.database
             {
                 MessageBox.Show(e.Message);
                 return new List<Requesition>();
-            }
-        }
-
-        public dynamic GetUserRequisition(int userId)
-        {
-            //Inner join para substituir o id do livro pelo nome do livro e o id do utilizador pelo nome do utilizador
-            string query = "SELECT requisicoes.id, requisicoes.levantamento, requisicoes.entrega, requisicoes.book_id, requisicoes.user_id, book.title, user.username FROM requisicoes INNER JOIN book ON requisicoes.book_id = book.book_id INNER JOIN user ON requisicoes.user_id = user.id WHERE requisicoes.user_id = @user_id";
-
-            try
-            {
-                using (Connection)
-                {
-                    dynamic result = Connection.QueryFirst<Requesition>(
-                        query,
-                        new { user_id = userId }
-                        );
-                    return result;
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-                return new Requesition();
             }
         }
     }

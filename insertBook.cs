@@ -15,43 +15,17 @@ using biblioteca.tools;
 
 namespace SGB
 {
-    public partial class editBooks : Form
+    public partial class insertBook : Form
     {
-        public editBooks()
+        public insertBook()
         {
             InitializeComponent();
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void editBooks_Load(object sender, EventArgs e)
-        {
-            Temp temp = new();
-            temp.ReadFile();
-
-            Book book = new();
-            book.Title = temp.Get("title");
-
-            BookDB bookDB = new();
-            Connection connection = new();
-            bookDB.SetConnection(connection.getConnection());
-
-            book = bookDB.Get(book);
-
-            titleTxb.Text = book.Title;
-            authorTxb.Text = book.Author;
-            isbnTxb.Text = book.ISBN;
-            publisherTxb.Text = book.Publisher;
-            yearTxb.Text = book.Year;
-            categoryTxb.Text = book.Category;
         }
 
         private void confirm_btn_Click(object sender, EventArgs e)
         {
             Book book = new();
+
             book.Title = titleTxb.Text;
             book.Author = authorTxb.Text;
             book.ISBN = isbnTxb.Text;
@@ -63,7 +37,7 @@ namespace SGB
             Connection connection = new();
             bookDB.SetConnection(connection.getConnection());
 
-            bookDB.Update(book);
+            bookDB.Insert(book);
 
             this.Close();
         }

@@ -52,6 +52,36 @@ namespace SGB
 
         private void attDados_Click(object sender, EventArgs e)
         {
+            insertBook insertBook = new();
+            insertBook.Show();
+        }
+
+        private void datagridLivros_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //Titulo
+            string? title = datagridLivros.CurrentRow.Cells[1].Value.ToString();
+            
+            Temp temp = new();
+            temp.Add("title", title == null ? "" : title);
+            temp.WriteFile();
+
+            editBooks edit = new editBooks();
+            edit.Show();
+        }
+        private void openReq_Click(object sender, EventArgs e)
+        {
+            requisicao req = new requisicao();
+            req.Show();
+        }
+
+        private void openReq_Click_1(object sender, EventArgs e)
+        {
+            requisicao req = new requisicao();
+            req.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
             //Clear datagrid
             datagridLivros.Rows.Clear();
 
@@ -69,28 +99,6 @@ namespace SGB
                 //Ordem de colunas: Id, Titulo, Autor, Editora, Ano, Categoria
                 datagridLivros.Rows.Add(b.Id, b.Title, b.Author, b.ISBN, b.Publisher, b.Year, b.Category);
             }
-        }
-
-        private void datagridLivros_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //Titulo
-            string? title = datagridLivros.CurrentRow.Cells[1].Value.ToString();
-            
-            MessageBox.Show(title);
-            SectionTools sectionTools = new();
-
-            sectionTools.AddSection("title", title, true, false);
-            sectionTools.SaveSectionFile();
-
-            editBooks edit = new editBooks();
-            edit.Show();
-        }
-
-        private void openReq_Click(object sender, EventArgs e)
-        {
-            requisicao req = new requisicao();
-            req.Show();
-            this.Hide();
         }
     }
 }
